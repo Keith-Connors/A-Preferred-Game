@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
+    //
+    // Try to keep all buttons relatively tidy, add more funtions after the scene selection and before the Start and Update functions.
+    //
     /*
      * Scene Order:
      * TESTING SCENE: 0
@@ -13,23 +16,28 @@ public class ButtonHandler : MonoBehaviour
      * PROP HUNT: 3
      * ZOMBIE: 4
      * 
-     * */
-    public void loadKOTH()
+     */
+    public void loadKOTH() //King of the Hill
     {
         SceneManager.LoadScene(2);
     }
 
-    public void loadPropHunt()
+    public void loadPropHunt() //Prop Hunt
     {
         SceneManager.LoadScene(3);
     }
 
-    public void loadZombieWaveShooter()
+    public void loadZombieWaveShooter() //Zombie Wave Shooter
     {
         SceneManager.LoadScene(4);
     }
 
     private void Start()
+    {
+        
+    }
+
+    private void Update()
     {
         
     }
