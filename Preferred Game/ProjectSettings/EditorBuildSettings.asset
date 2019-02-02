@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/_TESTING-SCENE.unity
+    guid: c0960ed3438954848b8ff88250888e59
+  - enabled: 1
+    path: Assets/Scenes/_Menu-SceneSelect.unity
+    guid: a24c0eac8eeb08644bc1c1ae758fa898
+  - enabled: 1
+    path: Assets/Scenes/Prototype_1-King-of-the-hill.unity
+    guid: 5d7f313f07f717d43b948fb1e547081a
+  - enabled: 1
+    path: Assets/Scenes/Prototype_2-Prop-Hunt.unity
+    guid: 4e1210b6084626541af1b15a48bafc91
+  - enabled: 1
+    path: Assets/Scenes/Prototype_3-Zombie-wave-shooter.unity
+    guid: 1b84c20068f1a3b4ebd3884985981282
   m_configObjects: {}
