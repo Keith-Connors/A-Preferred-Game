@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class ObjectiveArea : MonoBehaviour
 {
-    public GameObject ProgressBar;
+    [SerializeField] GameObject ProgressBarUi;
 
     private void Start()
     {
-        //ProgressBar.SetActive(false);
+        ProgressBarUi.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider player)
+    private void OnTriggerStay(Collider other)
     {
-        if (player.gameObject.tag == "Player")
+        if(other.tag == "Player")
         {
-            ProgressBar.SetActive(true);
+            Debug.Log("Player Entered");
+            ProgressBarUi.SetActive(true);
         }
     }
 
-    private void OnTriggerExit(Collider player)
+    private void OnTriggerExit(Collider other)
     {
-        if(player.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            ProgressBar.SetActive(false);
+            Debug.Log("Player Left");
+            ProgressBarUi.SetActive(false);
         }
     }
 }
