@@ -17,6 +17,7 @@ public class ObjectiveArea : MonoBehaviour
         {
             Debug.Log("Player Entered");
             ProgressBarUi.SetActive(true);
+            
         }
     }
 
