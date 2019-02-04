@@ -10,7 +10,7 @@ public class ProgressBar : MonoBehaviour
     public Transform TextLoading;
 
     public float m_loadAmount;
-    [SerializeField] float m_loadSpeed;
+    public float m_loadSpeed;
 
     public bool hasEnteredCaptureZone;
     /*
@@ -66,6 +66,15 @@ public class ProgressBar : MonoBehaviour
             TextPercentage.gameObject.SetActive(true);
             TextLoading.GetComponent<Text>().text = "Captured";
             // TextLoading.gameObject.SetActive(false);
+        }
+        if (hasEnteredCaptureZone == false && m_loadAmount <= 100)
+        {
+            if(m_loadAmount < 0)
+            {
+                m_loadAmount = 0;
+            }
+
+            m_loadAmount -= m_loadSpeed * Time.deltaTime;
         }
         LoadingBar.GetComponent<Image>().fillAmount = m_loadAmount / 100;
     }

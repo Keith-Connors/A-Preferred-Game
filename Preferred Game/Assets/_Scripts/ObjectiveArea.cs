@@ -28,9 +28,9 @@ public class ObjectiveArea : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-        {
+        
             GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = false;
             ProgressBarUi.SetActive(false);
         }
     }
-}
+
