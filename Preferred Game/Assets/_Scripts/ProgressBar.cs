@@ -12,10 +12,10 @@ public class ProgressBar : MonoBehaviour
     public float m_loadAmount;
     [SerializeField] float m_loadSpeed;
 
-    bool hasEnteredCaptureZone;
-
-    private void OnTriggerEnter(Collider player)
-    {/*
+    public bool hasEnteredCaptureZone;
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
         if (player.gameObject.tag == "Player")
         {
             if (m_loadAmount < 100)
@@ -33,17 +33,29 @@ public class ProgressBar : MonoBehaviour
         }*/
 
         //When the Player enters the trigger, set the boolean to true.
-        hasEnteredCaptureZone = true;
+    /*    if (other.tag == "Player")
+        {
+            hasEnteredCaptureZone = true;
+        }
+     
     }
-
-    private void OnTriggerExit(Collider player)
+    */
+    
+   /*
+    private void OnTriggerExit(Collider other)
     {
-        hasEnteredCaptureZone = false;
+        if (other.tag == "Player")
+        {
+            hasEnteredCaptureZone = false;
+            Debug.Log("player has exited");
+        }
+
     }
+    */
 
     private void Update()
     {
-        if (hasEnteredCaptureZone = true && m_loadAmount < 100)
+        if (hasEnteredCaptureZone == true && m_loadAmount < 100)
         {
             m_loadAmount += m_loadSpeed * Time.deltaTime;
             TextPercentage.GetComponent<Text>().text = ((int)m_loadAmount).ToString() + "%";
@@ -51,7 +63,7 @@ public class ProgressBar : MonoBehaviour
         }
         else
         {
-            TextPercentage.gameObject.SetActive(false);
+            TextPercentage.gameObject.SetActive(true);
             TextLoading.GetComponent<Text>().text = "Captured";
             // TextLoading.gameObject.SetActive(false);
         }

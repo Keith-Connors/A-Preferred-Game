@@ -5,19 +5,23 @@ using UnityEngine;
 public class ObjectiveArea : MonoBehaviour
 {
     [SerializeField] GameObject ProgressBarUi;
+    private ProgressBar progbar;
 
     private void Start()
+
     {
         ProgressBarUi.SetActive(false);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = false;
     }
+ 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Player Entered");
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = true;
             ProgressBarUi.SetActive(true);
-            
+         
         }
     }
 
@@ -25,7 +29,7 @@ public class ObjectiveArea : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Player Left");
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = false;
             ProgressBarUi.SetActive(false);
         }
     }
