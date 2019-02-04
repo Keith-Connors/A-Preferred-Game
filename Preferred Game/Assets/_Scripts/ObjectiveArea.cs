@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ObjectiveArea : MonoBehaviour
 {
-    [SerializeField] GameObject ProgressBarUi;
+    [SerializeField] GameObject ProgressBarUi, WrldProgressBarUi;
     private ProgressBar progbar;
 
     private void Start()
 
     {
         ProgressBarUi.SetActive(false);
+        WrldProgressBarUi.SetActive(false);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = false;
     }
  
@@ -21,7 +22,8 @@ public class ObjectiveArea : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = true;
             ProgressBarUi.SetActive(true);
-         
+            WrldProgressBarUi.SetActive(true);
+
         }
     }
 
@@ -31,6 +33,7 @@ public class ObjectiveArea : MonoBehaviour
         
             GameObject.FindGameObjectWithTag("GameController").GetComponent<ProgressBar>().hasEnteredCaptureZone = false;
             ProgressBarUi.SetActive(false);
-        }
+            WrldProgressBarUi.SetActive(false);
+    }
     }
 
