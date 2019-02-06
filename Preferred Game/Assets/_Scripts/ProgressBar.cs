@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
+    [SerializeField] Canvas _can;
     public Transform LoadingBar;
     public Transform TextPercentage;
     public Transform TextLoading;
@@ -83,5 +84,10 @@ public class ProgressBar : MonoBehaviour
         }
         LoadingBar.GetComponent<Image>().fillAmount = m_loadAmount / 100;
         WrldLoadingBar.GetComponent<Image>().fillAmount = m_loadAmount / 100;
+        Vector3 direction = (_can.transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
+        direction.y = 0;
+        Quaternion rotate = Quaternion.LookRotation(direction);
+        _can.gameObject.transform.rotation = rotate;
+
     }
 }
